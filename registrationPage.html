@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- Manual CSS -->
+	<link href="css/modal-css.css" rel="stylesheet" type="text/css">
+	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -12,6 +15,62 @@
     <title>Murrchallo_UserRegistrationPage</title>
   </head>
   <body>
+<!--  <div class="fb-login-button" data-width="70" data-size="large" data-button-type="continue_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
+  <div id="fb-root"></div> -->
+  
+  
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=803891400057501&autoLogAppEvents=1"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '5.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   
+   
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+
+{
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+}
+
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+</script>
+
   <form>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Имя пользователя</label>
@@ -43,35 +102,406 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="gridCheck1">
         <label class="form-check-label" for="gridCheck1">
-          Я принимаю условия Пользовательского соглашения и политики конфиденциальности Murrchallo
+          Я принимаю условия 
+		  <!-- Кнопки, открывающие модальное окно myModal -->
+			<a href="userAgreementPage.html" class="user_agreement" data-toggle="modal" data-target="#userAgreementPage" data-content="userAgreementPage.html">Пользовательского соглашения</a>
+			и 
+				<a href="privecyPolicy.html" class="privecy_policy" data-toggle="modal" data-target="#privecyPolicies" data-content="privecyPolicies.html">Политики конфиденциальности</a> 
+					Murrchallo.
         </label>
       </div>
     </div>
   </div>
   <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Войти в учётную запись</button>
-    </div>
 	<div class="col-sm-10">
       <button type="registration" class="btn btn-primary">Зарегистрироваться</button>
     </div>
+	</div>
+</form> 
+
+<div class="enter-to-profile">
+		<a href="index.html">Войти в учётную запись</a>
+		</div>
+		
+		<div class="text-to-inform-FB-enter">
+			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
+		</div>
+
+
+
+
+<!-- Модальное окно myModal -->
+<div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><strong>Пользовательское соглашение</strong></h3>
+		<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+      </div>
+      <div class="modal-body">
+        <p id="content"></p>
+		<p><em>Дата вступления в силу: 10 декабря 2019 г.</em></p>
+		<h3>Содержание</h3>
+			<ol>
+			<li><a href="#introduction"><u>Введение</u></a></li>
+			<li><a href="#duties"><u>Обязанности</u></a></li>
+			<li><a href="#rights_and_restrictions"><u>Права и ограничения</u></a></li>
+			<li><a href="#cessation_of_use"><u>Прекращение использования</u></a></li>
+			<li><a href="#allowed_and_forbidden_actions"><u>Разрешённые и запрещённые действия в Murrchallo</u></a></li>
+			<li><a href="#contact_details"><u>Контактные данные Murrchallo</u></a></li></ol>
+		
+		<h3 id="introduction">1. Введение</h3>
+			<p></p>
+			<p></p>
+		<h5>1.1. Договор</h5>
+			<p>Используя Услуги Murrchallo, вы принимаете все условия и положения настоящего соглашения. 
+				Использование вами Услуг Murrchallo также регулируется <u style="color: #0000FF">Политикой конфиденциальности</u>, 
+				которая регламентирует сбор, использование, передачу и хранение персональных данных.</p>
+			<p>Вы соглашаетесь с тем, что нажимая «Зарегистрироваться», регистрируясь, 
+				получая доступ или используя наши услуги, вы соглашаетесь заключить юридически обязывающий договор с Murrchallo. 
+				Если вы не принимаете условия настоящего договора (далее – «Договор» или «Пользовательское соглашение»), 
+				не нажимайте «Зарегистрироваться», не получайте доступ ни к одной из наших Услуг и не используйте их иным образом. 
+				Если вы пожелаете расторгнуть настоящий договор, вы можете сделать это в любое время, закрыв свою учётную запись и воздержавшись 
+				от доступа к Услугам Murrchallo и их последующего использования.</p>
+		<h5>Услуги</h5>
+			<p>Настоящий договор распространяется на веб-сайт Murrchallo.com, приложения, сообщения и другие услуги, 
+			которые предусмотрены настоящим Договором (далее – «Услуги»), включая собранные на сторонних сайтах данные для указанных Услуг. 
+			Зарегистрированные пользователи Услуг Murrchallo далее – «Клиенты», а незарегистрированные – «Посетители». Настоящий Договор распространяется и на Клиентов, и на Посетителей.</p>
+		<h5>Murrchallo</h5>
+			<p>Вы заключаете настоящий Договор с Murrchallo (далее – «мы», «нас», «нам» и «нами»).</p>
+			<p>Настоящий Договор распространяется на Клиентов и на Посетителей. Поскольку вы являетесь Посетителем или Клиентом Услуг Murrchallo, 
+			сбор, использование и передача ваших персональных данных регулируются настоящей Политикой конфиденциальности, а также обновлениями.</p>
+			<p></p>
+			<p></p>
+		<h5>1.2. Клиенты и Посетители</h5>
+			<p>Регистрируясь и присоединяясь к Murrchallo, 
+			вы получаете статус Клиента. Если вы решаете не регистрироваться для использования 
+			Услуг Murrchallo, вы можете получать доступ к отдельным функциям в качестве «Посетителя».</p>
+			<p></p>
+			<p></p>
+		<h5>1.3. Изменения</h5>
+			<p>Murrchallo имеет право вносить изменения в Договор.</p>
+			<p>Murrchallo может периодически вносить изменения в настоящий Договор и 
+			Политику конфиденциальности. В случае внесения существенных изменений Murrchallo 
+			опубликует соответствующее уведомление посредством Услуг либо иным способом, 
+			чтобы предоставить вам возможность ознакомиться с изменениями до вступления их в силу. 
+			Murrchallo соглашается с тем, что изменения не могут иметь обратной силы. 
+			Если вы не согласны с какими-либо изменениями, вы можете <a href="#">удалить свою учётную запись<a>. 
+			Продолжая использовать Услуги Murrchallo после публикации или отправки уведомления 
+			об изменении соответствующих положений и условий, вы тем самым соглашаетесь с 
+			обновлёнными положениями и условиями.</p>
+			<p></p>
+			<p></p>
+		<h3 id="duties">2. Обязанности</h3>
+			<p></p>
+			<p></p>
+		<h5>2.1. Ваша учётная запись</h5>
+			<p>Вы обязаны хранить свой пароль в тайне.</p>
+			<p>Вы не должны предоставлять свою учётную запись другим лицам и обязаны 
+			следовать правилам Murrchallo и требованиям закона.</p>
+			<p>Участники являются владельцами учётной записи. 
+			Вы берёте на себя следующие обязательства:</p> 
+			<p> 1) постараться подобрать надёжный и защищённый пароль;</p>
+			<p> 2) хранить свой пароль в тайне;</p>
+			<p> 3) не передавать другим лицам никакие данные из своей учётной записи (например, контакты); 
+			<p> 4) выполнять требования закона и руководствоваться списком «Разрешённые и запрещённые действия».</p>
+			<p>Вы несёте ответственность за всё, что происходит в связи с вашей учётной записью, 
+			до тех пор, пока не закроете её или не сообщите о её неправомерном использовании другими лицами.</p>
+			<p></p>
+			<p></p>
+		<h5>2.2. Оплата и платежи</h5>
+			<p>Вы обязуетесь производить оплату в срок и в полном объёме и соглашаетесь, 
+			что ваши платёжные реквизиты будут храниться в Murrchallo. 
+			Вы понимаете, что дополнительно к стоимости Услуг Murrchallo могут взиматься комиссии и налоги.</p>
+			<p>Мы не гарантируем возмещение денежных средств.</p>
+			<p>В случае приобретения любых платных Услуг вы соглашаетесь уплачивать Murrchallo 
+			соответствующие комиссии и налоги, а также соблюдать условия, 
+			которые регулируют использование Услуг. В случае неуплаты указанных комиссий 
+			предоставление платных Услуг может быть прекращено в одностороннем порядке. 
+			Кроме того, вы соглашаетесь с нижеследующим:</p>
+				<ul>
+					<li>При покупке может взиматься комиссионный сбор за конвертацию валют или 
+					возникать разница в ценах в зависимости от региона (например, из-за курсов валют).</li>
+					<li>Мы вправе хранить данные и продолжать осуществлять платежи в соответствии с 
+					вашим способом оплаты (например, через банковскую карту) даже по истечении срока 
+					его действия во избежание перерывов в предоставлении Услуг, 
+					а также для оплаты других Услуг, которые вы, возможно, захотите приобрести.</li>
+					<li>Если вы приобретаете подписку, указанный вами способ оплаты будет 
+					использоваться для автоматического списания комиссий и налогов за соответствующий 
+					период в начале каждого периода подписки. Чтобы избежать дальнейшей оплаты, 
+					отмените подписку до даты продления.</li>
+					<li>В отношении любых приобрётенных вами Услуг действует Политика 
+					Murrchallo по возмещению средств.</li>
+					<li>Мы можем рассчитывать сумму налогов, которые вы обязаны уплатить, 
+					исходя из платёжных реквизитов, указанных во время покупки.</li>
+				</ul>
+			<p>Копию квитанции за услуги можно получить в настройках своей учётной записи 
+			Murrchallo (раздел <a href="#">«История покупок»</a>).</p>
+			<p></p>
+			<p></p>
+		<h5>2.3. Уведомления и сообщения</h5>
+			<p>Вы соглашаетесь с тем, что для доставки вам уведомлений и сообщений 
+			Murrchallo будет использовать свои веб-сайты, приложения и контактные сведения. 
+			Если ваши контактные сведения устарели, вы можете пропустить важные уведомления 
+			от Murrchallo.</p>
+			<p>Вы соглашаетесь с тем, что Murrchallo будет направлять вам уведомления и 
+			сообщения следующими способами: (1) в рамках Услуги; 
+			(2) с использованием предоставленных вами контактных сведений 
+			(например, адреса электронной почты, номера мобильного телефона, фактического адреса). 
+			Вы соглашаетесь поддерживать свои <a href="#">контактные сведения</a> в актуальном состоянии.</p>
+			<p>Вы можете <a href="#">контролировать и ограничивать</a> сообщения, 
+			получаемые от Murrchallo, на страницах своих настроек.</p>
+			<p></p>
+			<p></p>
+		<h3 id="rights_and_restrictions">3. Права и ограничения</h3>
+			<p></p>
+			<p></p>	
+		<h5>3.1. Лицензия, которую вы предоставляете Murrchallo</h5>
+			<p>Вы владеете всеми отзывами и персональными данными, которые нам предоставили. 
+			Однако вы также предоставляете Murrchallo неисключительную лицензию на них.</p>
+			<p>Murrchallo обязуется уважать ваше решение о том, кто может просматривать 
+			соответствующую информацию, в том числе решение о том, каким образом её можно 
+			использовать для рекламы.</p>
+			<p>В отношениях между вами и Murrchallo вы являетесь владельцем информации, 
+			отправляемой или размещаемой вами при использовании Услуг, 
+			и предоставляете Murrchallo лишь следующую неисключительную лицензию:</p>
+			<p>международное, допускающее передачу и сублицензирование право на использование, 
+			копирование, изменение, распределение и обработку информации и контента, 
+			предоставляемых вами посредством Услуг Murrchallo или сторонних сервисов, 
+			без какого-либо дальнейшего согласия, уведомления и/или выплаты компенсации вам или другим лицам.</p>
+			<p>Вы и Murrchallo соглашаетесь с тем, что, если информация включает персональные данные, 
+			её использование регулируется Политикой конфиденциальности Murrchallo.
+			Вы и Murrchallo соглашаетесь с тем, что Murrchallo может получать доступ, 
+			хранить, обрабатывать и использовать любую предоставляемую вами информацию и 
+			персональные данные в соответствии с условиями Политики конфиденциальности и 
+			выбранными вами параметрами (включая настройки).</p>
+			 <p>При отправке в Murrchallo предложений или других отзывов об Услугах вы соглашаетесь, 
+			 что мы можем (но не обязаны) использовать и передавать такие отзывы другим лицам в 
+			 любых целях без выплаты вам компенсации.</p>
+			<p></p>
+			<p></p>	
+		<h5>3.2. Доступность Услуг</h5>
+			<p>Murrchallo вправе по своему усмотрению изменять, приостанавливать или прекращать 
+			предоставление любой Услуги, а также изменять и корректировать цены в будущем. 
+			В тех случаях, когда разрешено законом, такие изменения могут вступать в силу после 
+			предоставления вам уведомления.</p>
+			<p>Murrchallo имеет право изменить характер предоставления или прекратить предоставление 
+			любой из Услуг. Мы не обещаем сохранение или дальнейшее отображение размещённых вами 
+			информации и контента.</p>
+			<p>Murrchallo не является службой хранения данных. Вы соглашаетесь с тем, что Murrchallo 
+			не берёт на себя никаких обязательств по хранению, поддержанию или предоставлению вам 
+			копии какого-либо контента или информации, предоставленных вами или другими лицами, 
+			за исключением того, что требуется по закону и в соответствии с 
+			Политикой конфиденциальности Murrchallo.</p>
+			<p></p>
+			<p></p>	
+		<h5>3.3. Ограничения</h5>
+			<p>Murrchallo имеет право ограничить способы установления контакта и 
+			взаимодействия в рамках предоставления Услуг.</p>
+			<p>Murrchallo оставляет за собой право ограничить использование вами Услуг, 
+			в том числе количество ваших контактов и вашу способность связываться с другими 
+			Участниками. Murrchallo оставляет за собой право ограничить, приостановить или 
+			прекратить действие вашей учётной записи, если сочтёт, что вы нарушили настоящий 
+			Договор или закон либо используете Услуги ненадлежащим образом 
+			(например, нарушая требования раздела «Разрешённые и запрещённые действия»).</p>
+			<p></p>
+			<p></p>
+		<h3 id="cessation_of_use">4. Прекращение использования</h3>
+			<p></p>
+			<p></p>
+			<p>Настоящий Договор можно расторгнуть в любой момент.</p>
+			<p>Вы и Murrchallo вправе расторгнуть настоящий Договор в любой момент с предоставлением 
+			уведомления другой стороне. В случае расторжения вы теряете право доступа или 
+			использования Услуг. Перечисленные ниже права и условия остаются в силе после 
+			расторжения Соглашения:</p>
+				<ul>
+					<li>права Murrchallo на использование и разглашение информации о ваших отзывах;</li>
+					<li>права Клиентов и/или Посетителей на дальнейшую передачу информации, 
+					отправленной вами посредством Услуг, в той степени, в которой они были 
+					скопированы или переданы до расторжения Соглашения;</li>
+					<li>любые денежные суммы, которые одна из сторон была должна другой перед 
+					расторжением Соглашения, остаются в статусе задолженности после расторжения.</li>
+				</ul>
+			<p>Вы можете посетить наш <a href="#">справочный центр</a>, чтобы закрыть свою учётную запись.</p>
+			<p></p>
+			<p></p>
+		<h3 id="allowed_and_forbidden_actions">5. Разрешённые и запрещённые действия в Murrchallo</h3>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>	
+		<h5>5.1. Разрешённые действия</h5>
+			<p>Список «Разрешённые и запрещённые действия» определяет, что вы можете и не можете 
+			делать в рамках Услуг Murrchallo.</p>
+			<p>Вы соглашаетесь с тем, что вы будете:</p>
+				<ul>
+					<li>соблюдать всё применимое законодательство, законы об интеллектуальной 
+					собственности, законы о борьбе со спамом, законы об экспортном контроле, 
+					налоговое законодательство и нормативные требования;</li>
+					<li>предоставлять достоверную информацию и поддерживать её в актуальном состоянии;</li>
+					<li>своевременно выполнять условия использования Услуг согласно данному Договору.</li>
+				</ul>
+			<p></p>
+			<p></p>	
+		<h5>5.2. Запрещённые действия</h5>
+			<p>Вы соглашаетесь с тем, что вы не будете:</p>
+				<ul>
+					<li>создавать в Murrchallo профиль Клиента для кого-либо, кроме себя (реального лица), 
+					а также использовать или пытаться использовать чужую учётную запись;</li>
+					<li>разрабатывать, поддерживать или использовать программные продукты, устройства, 
+					скрипты, программы-роботы или другие способы и процессы 
+					(включая программы-обходчики, подключаемые модули и надстройки браузеров, 
+					а также с помощью любых иных технологий) для извлечения выгоды в рамках 
+					предоставляемых Услуг;</li>
+					<li>блокировать какие-либо функции системы безопасности или обходить любые элементы 
+					управления доступом или ограничения на использование услуг 
+					(например, верхний регистр при поиске по ключевым словам или просмотре профилей);</li>
+					<li>копировать, использовать, раскрывать или распространять любую информацию, 
+					полученную в процессе использования Услуг, непосредственно или через третьих лиц 
+					(например, поисковые системы) без согласия Murrchallo;</li>
+					<li>нарушать права интеллектуальной собственности и иные права Murrchallo и 
+					торговых партнёров, в том числе авторские права, права на патенты и товарные знаки, 
+					коммерческие тайны, и другие имущественные права; копирование или распространение 
+					технологии Murrchallo при отсутствии лицензии на программное обеспечение с открытым 
+					исходным кодом;</li>
+					<li>использовать слова «Murrchallo» или логотипов Murrchallo в любом фирменном 
+					наименовании, сообщении электронной почты или URL-адресе, кроме случаев, 
+					когда <a href="#">Правилами использования бренда</a> предусмотрено иное;</li>
+					<li>осуществлять вскрытие технологии, декомпиляцию, обратное ассемблирование, 
+					расшифровку или иным образом пытаться получить исходный код Услуг или любых 
+					связанных с ними технологий, кроме технологий с открытым исходным кодом;</li>
+					<li>отслеживать доступность, работоспособность или функциональность 
+					Услуг для каких-либо конкурирующих целей;</li>
+					<li>воссоздавать, зеркалировать или иным способом имитировать 
+					внешний вид или функционирование Услуг;</li>
+					<li>выполнять наложение или иным образом изменять Услуги Murrchallo или 
+					их внешний вид (например, посредством вставки элементов в Услуги или удаления, 
+					скрытия или затемнения рекламного объявления, входящего в состав Услуг);</li>
+					<li>препятствовать нормальному функционированию Услуг или создавать чрезмерную 
+					нагрузку на них (например, используя спам, атаки типа «отказ в обслуживании» (DoS), 
+					вирусы, игровые алгоритмы).</li>
+				</ul>
+			<p></p>
+			<p></p>
+		<h3 id="contact_details">6. Контактные данные Murrchallo</h3>
+			<p></p>
+			<p></p>
+			<p>Получить информацию об Услугах Murrchallo также можно <a href="#">через сайт</a> или 
+			<a href="#">обычной почтой центре</a> Murrchallo.</p>
+			<p>Если вы хотите отправить в Murrchallo уведомления или процессуальные документы, 
+			вы можете сделать это аналогичными способами.</p>
+	  
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
   </div>
-</form>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-<span class="signup-terms-text"> 
-"Вы принимаете условия "
-<p><a class="xhr1" id="user_agreement_link" href="" onlick="">Пользовательского соглашения</a></p>
-" и "
-<p><a class="xhr2" id="privacy_policies" href="" onlick="">Политики конфиденциальности</a></p>
-"Murrchallo"
-</span>
-<!--	<p><a href="">Forgot your password?</a></p> -->
-            </div>
+</div>
+
+
+<div class="modal fade modal-css" id="privecyPolicies" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><strong>Политика конфиденциальности</strong></h3>
+		<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+      </div>
+      <div class="modal-body" id="content">
+			<link rel="import" href="/privacyPolicies.html">
+				<script type="text/javascript">
+						var link = document.querySelector('link[rel=import]');
+						var content = link.import.querySelector('#privecy-policy-content');
+						document.body.appendChild(content.cloneNode(true));
+				</script> 
+				
+	 </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+
+  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+    console.log('statusChangeCallback');
+    console.log(response);                   // The current login status of the person.
+    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+      testAPI();  
+    } else {                                 // Not logged into your webpage or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this webpage.';
+    }
+  }
+
+
+  function checkLoginState() {               // Called when a person is finished with the Login Button.
+    FB.getLoginStatus(function(response) {   // See the onlogin handler
+      statusChangeCallback(response);
+    });
+  }
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{app-id}',
+      cookie     : true,                     // Enable cookies to allow the server to access the session.
+      xfbml      : true,                     // Parse social plugins on this webpage.
+      version    : '{api-version}'           // Use this Graph API version for this call.
+    });
+
+
+    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+      statusChangeCallback(response);        // Returns the login status.
+    });
+  };
+
+  
+  (function(d, s, id) {                      // Load the SDK asynchronously
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+ 
+  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+</script> -->
+
+
+<script>
+// при открытии модального окна
+$('#userAgreementPage' '#privecyPolicies').data('bs.modal').on('show.bs.modal', function (event) {
+
+  var elem = document.getElementById("content");
+  elem.style.max-height = 700px;
+  elem.style.overflow = auto;
+  elem.style.margin = 3%;
+  elem.style.margin-top = 0%;
+  // получить кнопку, которая его открыло
+  var button = $(event.relatedTarget) 
+  // извлечь информацию из атрибута data-content
+   var content = button.data('content') 
+  // вывести эту информацию в элемент, имеющий id="content"
+  $(this).find('#content').text(content); 
+})
+</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/popper.js/dist/popper.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>

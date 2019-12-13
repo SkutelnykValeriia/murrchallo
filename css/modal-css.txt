@@ -1,0 +1,8 @@
+.modal-css{
+	position: relative;
+    padding: 1.25em 1em 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    text-align: left;
+}
