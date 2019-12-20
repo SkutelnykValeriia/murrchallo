@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <!-- Required meta tags -->
@@ -12,80 +12,9 @@
     <title>Murrchallo</title>
   </head>
   <body>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=803891400057501&autoLogAppEvents=1"></script>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '{your-app-id}',
-      cookie     : true,
-      xfbml      : true,
-      version    : '5.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-   
-   
-FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
-
-
-{
-    status: 'connected',
-    authResponse: {
-        accessToken: '...',
-        expiresIn:'...',
-        signedRequest:'...',
-        userID:'...'
-    }
-}
-
-
-<fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
-
-
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
-</script>
-  <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">E-mail или телефон</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите E-mail или телефон">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Пароль</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Показать пароль</label>
-  </div>
-  <button type="enter" class="btn btn-primary">Вход</button>
-</form>
-	<p><a href="https://skutelnykvaleriia.github.io/murrchallo/registrationPage.html">Регистрация</a></p>
-	<p><a href="">Забыли пароль?</a></p>
-            </div>
-
-	<div class="text-to-inform-FB-enter">
-			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
-		</div>
-		
+	<h1>Вас приветствует Murrchallo!</h1>
+		<p><img src="images/test2.jpg" alt="Test2"></p>
+		<p><img src="images/test1.jpg" alt="Test1"></p>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
