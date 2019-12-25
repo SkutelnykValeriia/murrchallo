@@ -19,8 +19,7 @@
     <title>Murrchallo_UserRegistrationPage</title>
   </head>
   <body>
-<!--  <div class="fb-login-button" data-width="70" data-size="large" data-button-type="continue_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
-  <div id="fb-root"></div> -->
+
   <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 	<button class="google-sign-in-button">Вход через Google</button>
     <script>
@@ -39,6 +38,15 @@
         console.log("ID Token: " + id_token);
       }
     </script>
+	<a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
   
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=803891400057501&autoLogAppEvents=1"></script>
 <script>
