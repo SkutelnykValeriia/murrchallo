@@ -84,7 +84,7 @@
     var user = GoogleAuth.currentUser.get();
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
-      $('#sign-in-or-out-button').html('Sign out');
+      $('#sign-in-or-out-button').html('Выйти с аккаунта Google');
       $('#revoke-access-button').css('display', 'inline-block');
     } else {
       $('#sign-in-or-out-button').html('Войти через Google');
@@ -207,7 +207,7 @@ function checkLoginState() {
 			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
 		</div>
 		
-			<button id="sign-in-or-out-button">Войти через Google</button>
+			<button id="sign-in-or-out-button" class="sign-in-to-google-account-button">Войти через Google</button>
 			
 <!-- Модальное окно myModal -->
 <div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
