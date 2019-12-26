@@ -2,5 +2,6 @@
 	width: 100px;
 	height: 20px;
 	border-radius: 8px;
-	background-color: #0000CD
+	background: -moz-linear-gradient(##00008B, ##1E90FF);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(##00008B), to(##1E90FF));
 }
