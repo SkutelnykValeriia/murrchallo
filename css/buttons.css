@@ -1,5 +1,6 @@
-.g-signin2{
-	width: 20px;
+.sign-in-or-out-in-to-google-account-button{
+	width: 100px;
 	height: 20px;
-	border-radius: 40px 10px
+	border-radius: 8px;
+	background-color: #0000CD
 }

@@ -97,11 +97,6 @@
   }
 </script>
 
-<button id="sign-in-or-out-button"
-        style="margin-left: 25px">Войти через Google</button>
-
-<div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" 
         onload="this.onload=function(){};handleClientLoad()" 
@@ -211,7 +206,9 @@ function checkLoginState() {
 		<div class="text-to-inform-FB-enter">
 			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
 		</div>
-
+		
+			<button id="sign-in-or-out-in-to-google-account-button">Войти через Google</button>
+			
 <!-- Модальное окно myModal -->
 <div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
   <div class="modal-dialog modal-xl">
