@@ -1,9 +1,11 @@
 .sign-in-to-google-account-button{
-	background-image: url(images/google-icon.png) no-repeat;
+	background-image: url(images/google-icon.png);
 	background-position: left;
-	width: 245px;
-	height: 40px;
+	background-repeat: no-repeat;
+	width: 240px;
+	height: 38px;
 	border-radius: 5px;
     background: #FFFFFF;
-	color: #696969
+	color: #696969;
+	font-weight: bold;
 }
