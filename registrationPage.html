@@ -156,11 +156,16 @@ function checkLoginState() {
 <!--<div class="g-signin2" data-onsuccess="signOut()" data-theme="dark" onclick="text.style.display='block'" data-width="300" data-height="200" data-longtitle="true">
 		<div id="text" style="display: none" onclick="signOut()">Sign out</div>	  
 	  </div>
-		</div> -->
+		</div> 
 		
 	<div>
 		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" onclick="text.style.display='block'" data-longtitle="true">
 			Войти в учётную запись Google</div>
+	</div> -->
+	
+	<div>
+		<button class="signInGoogle" onclick="onSignIn text.style.display='block'">Войти в учётную запись Google</button>
+		<button class="signOutGoogle" style="display: none" onclick="signOut() text.style.display='block'">Выйти с учётной записи Google</button>
 	</div>
 		
 		
