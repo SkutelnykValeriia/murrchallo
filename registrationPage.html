@@ -84,7 +84,7 @@
     var user = GoogleAuth.currentUser.get();
     var isAuthorized = user.hasGrantedScopes(SCOPE);
     if (isAuthorized) {
-      $('#sign-in-or-out-button').html('Выйти с аккаунта Google');
+      $('#sign-in-or-out-button').html('Выйти с Google');
       $('#revoke-access-button').css('display', 'inline-block');
     } else {
       $('#sign-in-or-out-button').html('Войти через Google');
