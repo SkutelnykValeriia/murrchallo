@@ -21,11 +21,8 @@
   </head>
   <body>
 
-<!-- data-onsuccess="onSignIn" -->
 
-
-
-
+<!-- Google LogIn scripts -->
 <script>
   var GoogleAuth;
   var SCOPE = 'https://www.googleapis.com/auth/drive.metadata.readonly';
@@ -92,10 +89,8 @@
       $('#auth-status').html('You are currently signed in and have granted ' +
           'access to this app.');
     } else {
-      $('#sign-in-or-out-button').html('Sign In/Authorize');
+      $('#sign-in-or-out-button').html('Войти через Google');
       $('#revoke-access-button').css('display', 'none');
-      $('#auth-status').html('You have not authorized this app or you are ' +
-          'signed out.');
     }
   }
 
@@ -105,9 +100,7 @@
 </script>
 
 <button id="sign-in-or-out-button"
-        style="margin-left: 25px">Sign In/Authorize</button>
-<button id="revoke-access-button"
-        style="display: none; margin-left: 25px">Revoke access</button>
+        style="margin-left: 25px">Войти через Google</button>
 
 <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
 
@@ -117,46 +110,7 @@
         onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    <script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      }
-    </script>
-	
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
-  
+<!-- Facebook LogIn scripts -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=803891400057501&autoLogAppEvents=1"></script>
 <script>
   window.fbAsyncInit = function() {
@@ -196,7 +150,6 @@ FB.getLoginStatus(function(response) {
   scope="public_profile,email"
   onlogin="checkLoginState();">
 </fb:login-button>
-
 
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
@@ -261,23 +214,16 @@ function checkLoginState() {
 			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
 		</div>
 
-<!--<div class="g-signin2" data-onsuccess="signOut()" data-theme="dark" onclick="text.style.display='block'" data-width="300" data-height="200" data-longtitle="true">
-		<div id="text" style="display: none" onclick="signOut()">Sign out</div>	  
-	  </div>
-		</div> 
-		
-	<div>
-		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" onclick="text.style.display='block'" data-longtitle="true">
-			Войти в учётную запись Google</div>
-	</div> -->
-	
-	<div>
-		<button class="signInGoogle" onclick="onSignIn()" onclick="text.style.display='block'">Войти в учётную запись Google</button>
-		<button class="signOutGoogle" style="display: none" onclick="signOut()">Выйти с учётной записи Google</button>
-	</div>
-		
-		
-<a href="#" onclick="signOut()">Sign out</a>
+
+
+
+
+
+
+
+
+
+
 <!-- Модальное окно myModal -->
 <div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
   <div class="modal-dialog modal-xl">
