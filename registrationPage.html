@@ -20,6 +20,12 @@
     <title>Murrchallo_UserRegistrationPage</title>
   </head>
   <body>
+
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" onclick="text.style.display='block'">
+	  
+<button id="text" style="display: none" onclick="signOut();">Sign out</button>
+	  </div>
+	
     <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
@@ -34,9 +40,10 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+	      <a href="#" onclick="signOut();">Sign out</a>
       }
     </script>
-	<a href="#" onclick="signOut();">Sign out</a>
+	
 <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -151,7 +158,6 @@ function checkLoginState() {
 		</div>
 
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-
 
 <!-- Модальное окно myModal -->
 <div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
@@ -424,7 +430,7 @@ function checkLoginState() {
 </div>
 
 
-<div class="modal fade modal-css" id="privecyPolicies1" tabindex="-1">
+<div class="modal fade modal-css" id="privecyPolicies" tabindex="-1">
   <div class="modal-dialog modal-xl">
     <div class="modal-content" id="privecyPolicies">
       <div class="modal-header">
