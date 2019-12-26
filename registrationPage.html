@@ -86,8 +86,6 @@
     if (isAuthorized) {
       $('#sign-in-or-out-button').html('Sign out');
       $('#revoke-access-button').css('display', 'inline-block');
-      $('#auth-status').html('You are currently signed in and have granted ' +
-          'access to this app.');
     } else {
       $('#sign-in-or-out-button').html('Войти через Google');
       $('#revoke-access-button').css('display', 'none');
@@ -213,16 +211,6 @@ function checkLoginState() {
 		<div class="text-to-inform-FB-enter">
 			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
 		</div>
-
-
-
-
-
-
-
-
-
-
 
 <!-- Модальное окно myModal -->
 <div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
