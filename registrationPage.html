@@ -153,10 +153,11 @@ function checkLoginState() {
 			<div class="fb-login-button" data-width="100" data-size="large" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false"></div>
 		</div>
 
-<div class="g-signin2" data-onsuccess="signOut()" data-theme="dark" onclick="text.style.display='block'">	  
-		<button id="text" style="display: none" onclick="signOut()">Sign out</button>	  
-			<a href="#" onclick="signOut()">Sign out</a>
+<div class="g-signin2" data-onsuccess="signOut()" data-theme="dark" onclick="text.style.display='block'">
+		<div class="g-signout2" data-theme="dark" style="display: none" onclick="signOut()">
+		<div id="text" style="display: none" onclick="signOut()">Sign out</div>	  
 	  </div>
+		</div>
 <a href="#" onclick="signOut()">Sign out</a>
 <!-- Модальное окно myModal -->
 <div class="modal fade modal-css" id="userAgreementPage" tabindex="-1">
